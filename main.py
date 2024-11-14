@@ -5,6 +5,7 @@ import importlib
 programs = {
     "1": "programs.prime.prime",
     "2": "programs.age_calculator.age_calculator",
+    "3": "programs.emissions.emissions",  # Nueva entrada para el programa de emisiones
 }
 
 def show_menu():
