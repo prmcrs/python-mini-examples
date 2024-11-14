@@ -3,9 +3,10 @@ import importlib
 
 # Dictionary of program options and their module paths
 programs = {
-    "1": "programs.prime.prime",
-    "2": "programs.age_calculator.age_calculator",
-    "3": "programs.emissions.emissions",  # Nueva entrada para el programa de emisiones
+    "1": "programs.hello_world.hello_world",
+    "2": "programs.prime.prime",
+    "3": "programs.age_calculator.age_calculator",
+    "4": "programs.emissions.emissions",  # Nueva entrada para el programa de emisiones
 }
 
 def show_menu():
