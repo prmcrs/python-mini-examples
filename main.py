@@ -8,6 +8,7 @@ programs = {
     "3": "programs.age_calculator.age_calculator",
     "4": "programs.emissions.emissions",  
     "5": "programs.guess_number.guess_number", 
+    "6": "programs.basic_number_op.basic_number_op",
 }
 
 def show_menu():
