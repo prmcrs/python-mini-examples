@@ -1,28 +1,28 @@
-from datetime import datetime
+"""Calculate age in completed years and decade of birth."""
+from datetime import date, datetime
 
-def calculate_age(birth_date):
-    today = datetime.today()
-    age = today.year - birth_date.year
-    # Ajustar si la fecha de nacimiento aún no ha ocurrido este año
-    if (today.month, today.day) < (birth_date.month, birth_date.day):
-        age -= 1
-    return age
+
+def calculate_age(birth_date, today=None):
+    today = today or date.today()
+    birth = birth_date.date() if isinstance(birth_date, datetime) else birth_date
+    if birth > today:
+        raise ValueError("Birth date cannot be in the future.")
+    return today.year - birth.year - ((today.month, today.day) < (birth.month, birth.day))
+
 
 def calculate_decade(birth_date):
-    # Obtener la década de nacimiento
-    decade_start = (birth_date.year // 10) * 10
-    return decade_start
+    return (birth_date.year // 10) * 10
+
 
 def main():
-    birth_date_input = input("Introduce tu fecha de nacimiento (YYYY-MM-DD): ")
     try:
-        birth_date = datetime.strptime(birth_date_input, "%Y-%m-%d")
-        age = calculate_age(birth_date)
-        decade = calculate_decade(birth_date)
-        print(f"Tienes {age} años.")
-        print(f"Naciste en la década de {decade}.")
-    except ValueError:
-        print("Formato de fecha no válido. Por favor, introduce la fecha como YYYY-MM-DD.")
+        value = input("Enter your birth date (YYYY-MM-DD): ")
+        birth_date = datetime.strptime(value, "%Y-%m-%d").date()
+        print(f"You are {calculate_age(birth_date)} years old.")
+        print(f"You were born in the {calculate_decade(birth_date)}s.")
+    except ValueError as error:
+        print(f"Invalid date: {error}")
+
 
 if __name__ == "__main__":
     main()
