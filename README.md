@@ -1,47 +1,50 @@
-# Python Example Programs
+# Python Mini Examples
 
-```plaintext
-╔╦╗╦ ╦╦╔═╗  ╦╔═╗  ╔═╗╦ ╦╔╦╗╦ ╦╔═╗╔╗╔  ┬┬
- ║ ╠═╣║╚═╗  ║╚═╗  ╠═╝╚╦╝ ║ ╠═╣║ ║║║║  ││
- ╩ ╩ ╩╩╚═╝  ╩╚═╝  ╩   ╩  ╩ ╩ ╩╚═╝╝╚╝  oo
-```
+Small, independent command-line exercises for learning Python, adapted from programs originally written in C. The goal is to compare familiar programming concepts across the two languages without adding unnecessary frameworks.
 
-This repository contains a collection of small example programs originally written in C++ and now converted to Python. Each program has a specific purpose, from simple algorithms to command-line utilities, and demonstrates various Python programming techniques. This project is organized to help keep the programs accessible, modular, and easy to run.
+## Examples
 
-## Structure
+| Menu | Example | Concepts |
+| --- | --- | --- |
+| 1 | Hello World | Printing, raw strings, ASCII art |
+| 2 | Prime Numbers | Functions, loops, divisibility, integer square roots |
+| 3 | Age Calculator | Dates, validation, conditional expressions |
+| 4 | Emissions Calculator **(work in progress)** | Division, units, validation |
+| 5 | Guess the Number | Random numbers, loops, input handling |
+| 6 | Basic Number Operations | Arithmetic, comparisons, functions |
 
-Each program resides in its own folder within the `programs/` directory. This keeps things organized and allows for the addition of new programs without disrupting the structure.
+## Run
 
-
-## Running the Programs
-
-1. Clone the repository:
-    ```bash
-    git clone https://github.com/your-username/python-examples.git
-    cd python-examples
-    ```
-
-2. Run the main menu to select a program:
-    ```bash
-    python main.py
-    ```
-
-3. Follow the instructions in the terminal to execute any of the listed programs.
-
-## Adding a New Program
-
-To add a new program:
-
-1. Create a new folder in the `programs/` directory with a descriptive name.
-2. Add the Python file with the program’s code, making sure it has a `main()` function to allow it to be called from `main.py`.
-3. Update the `programs` dictionary in `main.py` to include the new program.
-
-## Requirements
-
-If your programs have any dependencies, list them in `requirements.txt`. To install dependencies, run:
+Requires Python 3.8 or later; no third-party dependencies.
 
 ```bash
-pip install -r requirements.txt
+git clone https://github.com/prmcrs/python-mini-examples.git
+cd python-mini-examples
+python main.py
 ```
 
+Each exercise can also run independently:
 
+```bash
+python programs/prime/prime.py
+```
+
+Run the standard-library tests:
+
+```bash
+python -m unittest discover -s tests -v
+```
+
+## Learning from C to Python
+
+These ports demonstrate Python's indentation-based blocks, `print()` and `input()` instead of `printf()` and `scanf()`, `range()` instead of C-style loop counters, and functions without mandatory type declarations. The goal is readable, introductory code rather than the shortest possible solution.
+
+See each example's README for behavior and C-to-Python learning notes. Original C source files are not included unless verified; these Python files should not be mistaken for verbatim translations.
+
+## Add an example
+
+Create `programs/<example>/<example>.py` with a `main()` function and a `if __name__ == "__main__": main()` guard. Add a friendly label and module path to `PROGRAMS` in `main.py`, document the exercise, and add tests for calculation functions.
+
+## Emissions status
+
+The emissions example is unfinished. It currently computes carbon monoxide (CO) grams per mile using a configurable comparison threshold (default: 3.4 g/mi). Vehicle class is collected but does not affect the calculation. This is an exercise threshold, not a statement of regulatory compliance. The program does **not** calculate CO₂ or fuel consumption yet.
