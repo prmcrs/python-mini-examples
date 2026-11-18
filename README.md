@@ -1,6 +1,12 @@
 # Python Mini Examples
 
-Small, independent command-line exercises for learning Python, adapted from programs originally written in C. The goal is to compare familiar programming concepts across the two languages without adding unnecessary frameworks.
+```plaintext
+╔╦╗╦ ╦╦╔═╗  ╦╔═╗  ╔═╗╦ ╦╔╦╗╦ ╦╔═╗╔╗╔  ┬┬
+ ║ ╠═╣║╚═╗  ║╚═╗  ╠═╝╚╦╝ ║ ╠═╣║ ║║║║  ││
+ ╩ ╩ ╩╩╚═╝  ╩╚═╝  ╩   ╩  ╩ ╩ ╩╚═╝╝╚╝  oo
+```
+
+This repository contains a collection of small  independent command-line exercises for learning Python, adapted from programs originally written in C. The goal is to compare familiar programming concepts across the two languages without adding unnecessary frameworks.
 
 ## Examples
 
