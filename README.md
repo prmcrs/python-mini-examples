@@ -6,7 +6,7 @@
  ╩ ╩ ╩╩╚═╝  ╩╚═╝  ╩   ╩  ╩ ╩ ╩╚═╝╝╚╝  oo
 ```
 
-This repository contains a collection of small  independent command-line exercises for learning Python, adapted from programs originally written in C. The goal is to compare familiar programming concepts across the two languages without adding unnecessary frameworks.
+This repository contains a collection of small, independent command-line programs for learning and practicing Python. Each example focuses on fundamental concepts such as variables, loops, functions, conditions, user input, and basic algorithms. Some exercises were originally written in C and later adapted to Python.
 
 ## Examples
 
@@ -41,11 +41,9 @@ Run the standard-library tests:
 python -m unittest discover -s tests -v
 ```
 
-## Learning from C to Python
+## Learning Python
 
-These ports demonstrate Python's indentation-based blocks, `print()` and `input()` instead of `printf()` and `scanf()`, `range()` instead of C-style loop counters, and functions without mandatory type declarations. The goal is readable, introductory code rather than the shortest possible solution.
-
-See each example's README for behavior and C-to-Python learning notes. Original C source files are not included unless verified; these Python files should not be mistaken for verbatim translations.
+The examples are intentionally small and easy to explore. Run them, read the code, change the inputs, and experiment with different solutions. Each program has its own README explaining what it does and which Python concepts it practices.
 
 ## Add an example
 
