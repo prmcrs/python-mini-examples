@@ -1,40 +1,46 @@
-import os
+"""Menu for small, independent Python exercises."""
 import importlib
 
-# Dictionary of program options and their module paths
-programs = {
-    "1": "programs.hello_world.hello_world",
-    "2": "programs.prime.prime",
-    "3": "programs.age_calculator.age_calculator",
-    "4": "programs.emissions.emissions",  
-    "5": "programs.guess_number.guess_number", 
-    "6": "programs.basic_number_op.basic_number_op",
+PROGRAMS = {
+    "1": ("Hello World", "programs.hello_world.hello_world"),
+    "2": ("Prime Numbers", "programs.prime.prime"),
+    "3": ("Age Calculator", "programs.age_calculator.age_calculator"),
+    "4": ("Emissions Calculator (work in progress)", "programs.emissions.emissions"),
+    "5": ("Guess the Number", "programs.guess_number.guess_number"),
+    "6": ("Basic Number Operations", "programs.basic_number_op.basic_number_op"),
 }
 
+
 def show_menu():
-    print("Select a program to execute:")
-    for key, value in programs.items():
-        # Display the program name from the module path
-        print(f"{key}. {value.split('.')[-1]}")
+    print("\n=== PYTHON MINI EXAMPLES ===")
+    for key, (name, _) in PROGRAMS.items():
+        print(f"{key}. {name}")
+    print("Q. Quit")
+
 
 def run_program(option):
-    try:
-        # Import the module dynamically based on user selection
-        module = importlib.import_module(programs[option])
-        # Execute the main function of the selected module
-        module.main()
-    except KeyError:
+    entry = PROGRAMS.get(option)
+    if entry is None:
         print("Invalid option.")
-    except AttributeError:
-        print("The selected program does not have a main() function.")
-    except Exception as e:
-        print(f"An error occurred: {e}")
+        return
+    _, module_path = entry
+    module = importlib.import_module(module_path)
+    module.main()
 
-if __name__ == "__main__":
+
+def main():
     while True:
         show_menu()
-        option = input("Enter the program number to execute (or 'q' to quit): ")
-        if option.lower() == 'q':
-            print("Exiting the program. Goodbye!")
+        try:
+            option = input("Choose an option: ").strip().lower()
+            if option == "q":
+                print("Goodbye!")
+                break
+            run_program(option)
+        except (EOFError, KeyboardInterrupt):
+            print("\nGoodbye!")
             break
-        run_program(option)
+
+
+if __name__ == "__main__":
+    main()
