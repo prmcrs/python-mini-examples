@@ -1,50 +1,53 @@
-def sumar_numeros():
-    numero1 = int(input("Escriba el primer entero: "))
-    numero2 = int(input("Escriba el segundo entero: "))
-    print(f"La suma es {numero1 + numero2}")
+"""Small exercises with integer arithmetic and comparisons."""
 
-def comparar_numeros():
-    numero1 = int(input("Escriba el primer entero: "))
-    numero2 = int(input("Escriba el segundo entero: "))
-    if numero1 == numero2:
-        print(f"{numero1} == {numero2}")
-    if numero1 != numero2:
-        print(f"{numero1} != {numero2}")
-    if numero1 < numero2:
-        print(f"{numero1} < {numero2}")
-    if numero1 > numero2:
-        print(f"{numero1} > {numero2}")
-    if numero1 <= numero2:
-        print(f"{numero1} <= {numero2}")
-    if numero1 >= numero2:
-        print(f"{numero1} >= {numero2}")
 
-def calcular_producto():
-    x = int(input("Escriba el primer entero: "))
-    y = int(input("Escriba el segundo entero: "))
-    z = int(input("Escriba el tercer entero: "))
-    print(f"El producto es {x * y * z}")
+def add(a, b):
+    return a + b
+
+
+def multiply_three(a, b, c):
+    return a * b * c
+
+
+def comparisons(a, b):
+    return [
+        f"{a} {symbol} {b}"
+        for symbol, matches in (
+            ("==", a == b), ("!=", a != b), ("<", a < b),
+            (">", a > b), ("<=", a <= b), (">=", a >= b)
+        )
+        if matches
+    ]
+
+
+def read_integer(prompt):
+    while True:
+        try:
+            return int(input(prompt))
+        except ValueError:
+            print("Please enter a valid integer.")
+
 
 def main():
     while True:
-        print("Seleccione una opción:")
-        print("1. Sumar dos números")
-        print("2. Comparar dos números")
-        print("3. Calcular el producto de tres números")
-        print("4. Salir")
-        opcion = input("Ingrese su elección: ")
-
-        if opcion == "1":
-            sumar_numeros()
-        elif opcion == "2":
-            comparar_numeros()
-        elif opcion == "3":
-            calcular_producto()
-        elif opcion == "4":
-            print("¡Adiós!")
+        print("\n1. Add two integers\n2. Compare two integers\n3. Multiply three integers\n4. Exit")
+        choice = input("Choose an option: ").strip()
+        if choice == "4":
+            print("Goodbye!")
             break
+        if choice not in {"1", "2", "3"}:
+            print("Invalid option.")
+            continue
+        a = read_integer("First integer: ")
+        b = read_integer("Second integer: ")
+        if choice == "1":
+            print(f"Sum: {add(a, b)}")
+        elif choice == "2":
+            print("\n".join(comparisons(a, b)))
         else:
-            print("Opción no válida, intente nuevamente.")
+            c = read_integer("Third integer: ")
+            print(f"Product: {multiply_three(a, b, c)}")
+
 
 if __name__ == "__main__":
     main()
